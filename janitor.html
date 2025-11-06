@@ -1,0 +1,1762 @@
+<style>
+
+._wrapper_13xo6_1 {
+  background: #000000 !important;
+}
+
+
+/* CARTE */ 
+.chakra-stack.profile-character-card-stack, 
+.css-1s5evre, 
+.profile-character-card{ 
+position: relative; 
+display: flex; 
+padding: 0px 0px 30px;
+border: 2px solid #F2F2DC; 
+border-radius: 4px; 
+background: linear-gradient( to bottom,
+#321473 0%, 
+#A050A9 75%, 
+#f2f2dc 100% ), 
+radial-gradient(at 100% 100%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 60%); 
+background-color: #321473; 
+background-clip: padding-box; 
+box-shadow: none !important; 
+isolation: isolate; 
+}
+  
+/* DESACTIVE TOUTE LES SURCOUCHES */ 
+.chakra-stack.profile-character-card-stack::before, 
+.chakra-stack.profile-character-card-stack::after,  
+.profile-character-card-stack-link-component-box::before, 
+.profile-character-card-stack-link-component-box::after, 
+.pp-cc-gradient-1, .pp-cc-gradient-2, div[class*="pp-cc-gradient"], .css-1s5evre::before, 
+.css-1s5evre::after, 
+.profile-character-card::before, 
+.profile-character-card::after{ 
+background: none !important; 
+box-shadow: none !important; 
+outline: 0 !important; 
+filter: none !important; 
+mix-blend-mode: normal !important; 
+opacity: 0 !important; 
+content: none !important; 
+border: 0 !important; 
+}
+
+/* RUBAN */
+.css-wexxj8,
+.pp-cc-ribbon-wrap,
+.profile-character-card-ribbon-wrap {
+  background: #97a97c ;
+  color: #0c0406 ;
+  font-family: "FUTUR", sans-serif ;
+  font-weight: 500 ;
+  mix-blend-mode: normal ;
+  background-image: none ;
+  filter: none ;
+  border: none ;
+}
+
+
+/* TITRES DES CARTES */
+.pp-cc-name,
+.profile-character-card-name-box {
+  font-family: "Brush Script MT", sans-serif ; /* change la fonte ici */
+  font-weight: 100 ;
+  text-align: center ;
+  width: 100% ;        /* force le centrage */
+  display: block ;
+  color: #F2F2DC ;     /* garde ton beige lisible */
+  font-size: 1.05rem ; /* ajuste si tu veux */
+  letter-spacing: .5px;          /* petit plus élégant */
+}
+
+  
+
+/* FILTRE SUR IMAGE — version corrigée (pas d'espace avant :not) */
+.css-1s5evre img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]),
+.profile-character-card img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]),
+img.profile-character-card-avatar-image{
+  filter: grayscale(100%) opacity(.75) !important;
+  transition: filter .2s ease !important;
+}
+.css-1s5evre img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]):hover,
+.profile-character-card img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]):hover,
+img.profile-character-card-avatar-image:hover{
+  filter: none !important;
+}
+
+
+
+/* NOM DU CRÉATEUR SUR LA CARTE */
+.pp-cc-creator-name,
+.profile-character-card-creator-name-box {
+  font-family: "Brush Script MT" ; 
+  font-weight: 100 ;
+  text-align: center ;
+  width: 100% ;
+  display: block ;
+  color: #F2F2DC ;
+  font-size: 1rem ;  /* + discret que le nom du perso */
+  letter-spacing: .5px ;
+}
+
+  
+/* DESCRIPTION DES CARTES */
+.pp-cc-description,
+.profile-character-card-description-markdown-container,
+.pp-cc-description p,
+.profile-character-card-description-markdown-container p {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .70rem;
+  line-height: 1.2 ;
+  text-align: center ;
+  color: #F2F2DC ;
+  font-weight: 100 ;
+  letter-spacing: .5px ;
+}
+/* Images des cartes — coins carrés */
+.css-1s5evre img,
+.profile-character-card img,
+img.profile-character-card-avatar-image {
+  border-radius: 0 !important;
+}
+
+/* LIGNE SOUS LE NOM */
+.pp-cc-star-line.profile-character-card-star-line {
+  border-top: 2px solid #F2F2DC !important;
+  height: 0 !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  margin-top: 6px;
+}
+
+/* ÉTOILE EXACTE EN #F2F2DC + léger glow */
+img.pp-cc-star.profile-character-card-star {
+  filter: brightness(0) saturate(100%)
+          invert(94%) sepia(5%) saturate(320%)
+          hue-rotate(9deg) brightness(103%) contrast(92%)
+          drop-shadow(0 0 4px rgba(242,242,220,.55)) !important;
+}
+
+/* ÉTIQUETTES / TAGS */
+.pp-cc-tags-item {
+  border: 1px solid #f2f2dc ;
+  border-radius: 4px ;
+  padding: 2px 7px ;
+
+  font-family:  "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.80rem !important;
+  line-height: 1.10 !important;
+  font-weight: 400 !important;
+  letter-spacing: .2px !important;
+  text-align: center !important;
+  color: #f2f2dc !important;
+
+  background: #A050A9 ;
+  transition: .2s ease;
+}
+
+/* Effet hover (optionnel) */
+.pp-cc-tags-item:hover {
+  background: rgba(50, 20, 115, 0.12); /* léger highlight */
+  border-color: #f2f2dc; /* ton vert lumière si tu veux harmonie */
+}
+
+  /* === ÉTIQUETTES DANS LA FENÊTRE DE FILTRES === */
+section.chakra-modal__content [class*="_tagsContainer_"] button,
+section.chakra-modal__content [class*="_collapsedContainerWrapper_"] button,
+section.chakra-modal__content [class*="_container_"] button,
+section.chakra-modal__content [class*="_tag_"] {
+  border: 1px solid #f2f2dc !important;
+  border-radius: 4px !important;
+  padding: 2px 7px !important;
+
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: 0.80rem !important;
+  line-height: 1.10 !important;
+  font-weight: 400 !important;
+  letter-spacing: .2px !important;
+  text-align: center !important;
+  color: #f2f2dc !important;
+
+  background: #A050A9 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+/* Effet hover léger */
+section.chakra-modal__content [class*="_tagsContainer_"] button:hover,
+section.chakra-modal__content [class*="_collapsedContainerWrapper_"] button:hover,
+section.chakra-modal__content [class*="_container_"] button:hover {
+  background: rgba(50, 20, 115, 0.12) !important;
+  border-color: #f2f2dc !important;
+  filter: brightness(1.05);
+}
+
+/* STYLE JETONS SUR CARTES */
+.pp-cc-tokens-count,
+.profile-character-card-tokens-count {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #321473;
+  border-radius: 4px;
+  font-family: "Futura", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #321473;
+  letter-spacing: .3px;
+  text-align: center;
+}
+  
+/* Retire l'ombre sous le texte des tokens */
+.pp-cc-tokens-count,
+.profile-character-card-tokens-count {
+  text-shadow: none !important;
+}
+
+/* Centrer le bloc jetons */
+.profile-character-card-box {
+  text-align: center;
+}
+
+/* TOP BAR */
+.pp-top-bar,
+.profile-top-bar {
+  background:
+    linear-gradient(90deg,
+      rgba(50, 20, 115, .28) 0%,
+      rgba(160, 80, 169, .22) 50%,
+      rgba(242, 242, 220, .06) 100%) ;
+  color: #F2F2DC ;
+  backdrop-filter: blur(14px) saturate(1.25) ;
+  -webkit-backdrop-filter: blur(14px) saturate(1.25) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(242, 242, 220, .12),
+    0 6px 22px rgba(160, 80, 169, .18);
+}
+
+/* === Bouton “Créer un personnage” === */
+a.pp-top-bar-create-char {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 1px solid #F2F2DC;
+  border-radius: 6px;
+  background: #b77eb7 !important;  /* violet doux */
+  color: #F2F2DC !important;       /* texte beige clair */
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none ;
+  box-shadow: none ;
+  cursor: pointer;
+}
+
+/* Neutralise tout effet “glow” ou hover */
+a.pp-top-bar-create-char:hover,
+a.pp-top-bar-create-char:focus,
+a.pp-top-bar-create-char::before,
+a.pp-top-bar-create-char::after {
+  background: none;
+  color:none;
+  box-shadow: none ;
+  filter: none ;
+  outline: none ;
+}
+
+  
+/*  BOUTON HUSBANDO  */
+.profile-pagination-flex-outer,
+.character-list-pagination-box {
+  background: transparent !important;
+}
+
+.profile-badge-flex-outer.Btn2-purple.pp-pg-total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid #F2F2DC;
+  border-radius: 6px ;
+  background: #b77eb7 ;
+  color: #F2F2DC ;
+  box-shadow: none ;
+  transition: all 0.25s ease ;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Effet sur la bordure (même que recherche de personnage) */
+.profile-badge-flex-outer.Btn2-purple.pp-pg-total:hover {
+  border-color: #F2F2DC !important;
+  box-shadow: 0 0 6px rgba(242, 242, 220, 0.35);
+  filter: brightness(1.05);
+}
+
+/* Neutralise tout fond interne */
+.profile-badge-flex-outer::before,
+.profile-badge-flex-outer::after,
+.profile-badge-flex-inner,
+.profile-badge-flex-inner::before,
+.profile-badge-flex-inner::after {
+  background: transparent !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
+/* Supprime “personnages” et ajoute “husbando” */
+.profile-badge-total-text {
+  font-size: 0 !important;
+}
+.profile-badge-total-text::after {
+  content: "husbando";
+  font-family: "Brush Script MT", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: #F2F2DC;
+  margin-left: 4px;
+}
+
+/* Nombre (ex: 13) */
+.pp-pg-total-count,
+.profile-badge-total-count,
+.pp-pg-total-count strong {
+  font-family: "Brush Script MT", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #F2F2DC !important;
+  text-shadow: none !important;
+}
+
+  /* CHAMP DE RECHERCHE PERSONNAGES */
+.profile-character-search-input,
+.chakra-input._searchInput_1tkkb_1,
+.pp-fl-search-input {
+  background: transparent !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 10px !important;
+  text-align: left !important;
+  outline: none !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Effet focus léger et propre */
+.profile-character-search-input:focus,
+.chakra-input._searchInput_1tkkb_1:focus,
+.pp-fl-search-input:focus {
+  box-shadow: 0 0 6px rgba(242, 242, 220, 0.35);
+  filter: brightness(1.05);
+}
+
+/* Placeholder assorti */
+.profile-character-search-input::placeholder,
+.chakra-input._searchInput_1tkkb_1::placeholder,
+.pp-fl-search-input::placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: rem;
+  line-height: 1.2 ;
+  text-align: center ;
+  color: #F2F2DC ;
+  font-weight: 100 ;
+  letter-spacing: .5px ;
+}
+
+/*  CHAMP DE RECHERCHE PERSONNAGES neutralise tout halo/ring violet */
+.profile-character-search-input,
+.chakra-input._searchInput_1tkkb_1,
+.pp-fl-search-input{
+  background: transparent !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  outline: none !important;
+  box-shadow: none !important;                 /* coupe le ring par défaut */
+  transition: border-color .2s ease, box-shadow .2s ease, filter .2s ease !important;
+}
+
+/* Hover/focus : lueur beige, pas de violet */
+.profile-character-search-input:hover,
+.profile-character-search-input:focus,
+.chakra-input._searchInput_1tkkb_1:hover,
+.chakra-input._searchInput_1tkkb_1:focus,
+.pp-fl-search-input:hover,
+.pp-fl-search-input:focus,
+.profile-character-search-input-group:focus-within{
+  border-color: #F2F2DC !important;
+  box-shadow: 0 0 6px rgba(242,242,220,.35) !important;  /* halo beige */
+  filter: brightness(1.05);
+  outline: none !important;
+}
+
+/*  BOUTON FILTRE  */
+.pp-fl-filter-button {
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  padding: 6px 10px !important;
+  cursor: pointer !important;
+  transition: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Neutralise hover/focus */
+.pp-fl-filter-button:hover,
+.pp-fl-filter-button:focus {
+  background: #b77eb7 !important;
+  color: #F2F2DC !important;
+  border-color: #F2F2DC !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+}
+
+/* Icône SVG figée */
+.pp-fl-filter-button svg {
+  color: #F2F2DC !important;
+  transition: none !important;
+}
+.pp-fl-filter-button:hover svg,
+.pp-fl-filter-button:focus svg {
+  color: #F2F2DC !important;
+}
+
+
+/* BOUTON DERNIER */
+/* Bouton fermé */
+div[class*="react-select__control"]{
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  min-height: 38px !important; height: 38px !important;
+  box-shadow: none !important;
+  align-items: center !important;
+  transition: box-shadow .2s ease, filter .2s ease !important;
+}
+
+/* Contenu interne + texte centré */
+div[class*="react-select__value-container"]{
+  display:flex !important; align-items:center !important;
+  height:100% !important; padding:0 10px !important;
+}
+div[class*="react-select__single-value"],
+div[class*="react-select__placeholder"]{
+  color:#F2F2DC !important;
+  font: 100 0.90rem/1 "Helvetica Neue", Helvetica, sans-serif !important;
+  display:flex !important; align-items:center !important; height:100% !important;
+}
+
+/* Chevron et pas de séparateur */
+div[class*="react-select__indicators"]{
+  display:flex !important; align-items:center !important; height:100% !important;
+}
+span[class*="react-select__indicator-separator"]{ display:none !important; }
+div[class*="react-select__dropdown-indicator"]{ padding:0 10px !important; }
+div[class*="react-select__dropdown-indicator"] svg{
+  color:#F2F2DC !important; fill:#F2F2DC !important;
+}
+
+/* Hover/focus (même logique que “Recherche de personnage”) */
+div[class*="react-select__control"]:hover,
+div[class*="react-select__control"].react-select__control--is-focused{
+  border-color:#F2F2DC !important;
+  box-shadow:0 0 6px rgba(242,242,220,.35) !important;
+  filter:brightness(1.05);
+}
+
+/* Menu déroulant */
+div[class*="react-select__menu"]{
+  background: rgba(183, 126, 183, .25) !important;
+  border:1px solid #F2F2DC !important; border-radius:8px !important;
+  box-shadow:0 0 6px rgba(242,242,220,.25) !important;
+  backdrop-filter: blur(10px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.2) !important;
+  overflow:hidden !important;
+}
+
+/* Options */
+div[class*="react-select__option"]{
+  background:transparent !important; color:#F2F2DC !important;
+  transition: background .25s ease;
+}
+div[class*="react-select__option--is-focused"],
+div[class*="react-select__option--is-selected"]{
+  background: rgba(242, 242, 220, .35) !important; color:#fff !important;
+}
+
+
+  /* 1) Couper TOUTES les info-bulles (tooltips) */
+[role="tooltip"],
+.chakra-tooltip,
+[class*="tooltip"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* (facultatif) Si Janitor met ses tooltips dans un “popper” spécifique */
+div[id*="tooltip"], 
+div[class*="tooltip"], 
+div[class*="chakra-tooltip__content"] {
+  display: none !important;
+}
+
+/* 2) Neutraliser les effets de survol agaçants */
+
+/* Boutons génériques (Chakra/Janitor) */
+button:hover,
+a.chakra-button:hover,
+[class*="chakra-button"]:hover,
+[class*="pp-"][class*="button"]:hover,
+.Btn:hover {
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  background-image: none !important;
+}
+
+/* Cartes / vignettes de personnages */
+.profile-character-card:hover,
+.css-1s5evre:hover,
+.chakra-stack.profile-character-card-stack:hover {
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Tags / jetons */
+.pp-cc-tags-item:hover,
+.profile-character-card-tokens-count:hover {
+  background: inherit !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* (optionnel) retirer tout “ring” d’accessibilité visuelle au focus */
+button:focus, a:focus, input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* DEPLIER FILTRE */
+section.chakra-modal__content,
+div.chakra-modal__content {
+  background: rgba(50, 20, 115, 0.9) !important; /* ton bleu/violet, légèrement translucide */
+  backdrop-filter: blur(3px) !important;         /* petit effet doux */
+  border: 2px solid #F2F2DC !important;          /* garde la bordure blanche/beige */
+  border-radius: 4px !important;
+  color: #F2F2DC !important;                     /* texte lisible */
+  box-shadow: none !important;                   /* pas d’ombre autour */
+}
+/* Titres du modal : "Filtres", "Étiquettes" → Arial, même tailles qu’à l’origine */
+section.chakra-modal__content .chakra-modal__header,
+section.chakra-modal__content h1,
+section.chakra-modal__content h2,
+section.chakra-modal__content [class*="heading"]{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 700 !important;     /* garde un rendu net */
+  color: #F2F2DC !important;
+  line-height: 1.25 !important;
+  letter-spacing: .2px !important;
+  text-shadow: none !important;
+}
+
+/* Certains titres sont enveloppés par <font> : on force l’héritage */
+section.chakra-modal__content .chakra-modal__header font,
+section.chakra-modal__content h1 font,
+section.chakra-modal__content h2 font{
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+/* CADRE CROIX */
+[class*="_navigationButton_"],
+.chakra-modal__close-btn {
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  color: #F2F2DC !important;
+  box-shadow: none !important;
+}
+
+
+
+
+  
+/* FOLLOW + OPTIONS */
+/* 1) Forcer le conteneur parent à centrer (solution moderne) */
+.chakra-stack:has(.profile-uc-follow-flex, .chakra-menu__menu-button),
+[class*="profile-info-hstack"]:has(.profile-uc-follow-flex, .chakra-menu__menu-button){
+  display: flex !important;
+  justify-content: center !important;  /* centre horizontalement */
+  align-items: center !important;       /* centre verticalement   */
+  gap: 10px !important;                 /* espace entre les deux  */
+  width: 100% !important;
+}
+
+/* 2) Fallback si :has() est ignoré (cibler la stack locale) */
+.profile-uc-follow-flex {               /* bloc du bouton Follow */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.pp-uc-follow-button,
+.profile-uc-follow-button,
+button.pp-uc-follow-button{
+  margin: 0 !important;
+}
+
+.chakra-menu__menu-button,              /* bouton Options (⋯) */
+button[id^="menu-button-public-profile-block-menu"]{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+
+/* 3) Petit ajustement: s’assurer que la ligne qui contient les deux s’étire */
+.chakra-stack[class*="y9k5u7"],
+[class*="profile-info-stack"] > .chakra-stack{
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Supprime complètement le bouton d’onglet et sa ligne bleue */
+.chakra-tabs__tab.pp-tabs-button.profile-tabs-button,
+button.pp-tabs-button,
+button.profile-tabs-button {
+  display: none ;
+  visibility: hidden ;
+  opacity: 0 ;
+  pointer-events: none ;
+}
+
+/* Supprime aussi la ligne d’indicateur bleue des onglets Chakra */
+.chakra-tabs__tab-indicator,
+[class*="tabs__tab-indicator"] {
+  display: none ;
+  opacity: 0 ;
+  background: none ;
+  border: none ;
+  height: 0 ;
+}
+
+/* PROFIL DISPOSITION */
+  
+/* Conteneur principal du header */
+.chakra-stack.profile-info-hstack,
+.profile-info-hstack,
+[class*="profile-info-hstack"]{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Avatar en haut */
+.profile-info-hstack .pp-uc-avatar-container,
+.profile-info-hstack .profile-avatar-container,
+.profile-info-hstack [class*="profile-avatar-container"]{
+  align-self: center !important;
+}
+.profile-info-hstack .pp-uc-avatar,
+.profile-info-hstack .profile-avatar,
+.profile-info-hstack [class*="profile-avatar"]{
+  border-radius: 10px !important;
+  width: 132px !important;
+  height: 132px !important;
+  object-fit: cover !important;
+}
+
+/* 2) Pile infos sous l’avatar */
+.profile-info-hstack .chakra-stack.profile-info-stack,
+.profile-info-hstack [class*="profile-info-stack"]{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+  /* Nom d’utilisateur */
+.profile-info-hstack [class*="username"],
+.profile-info-hstack [class*="profile-info-name"],
+.profile-info-hstack h1[class*="heading"],
+.profile-info-hstack h2[class*="heading"]{
+  font-family: "Brush Script MT", sans-serif !important;
+  font-weight: 100 !important;
+  font-size: 1.9rem !important;
+  letter-spacing: .5px !important;
+  color: #F2F2DC !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* Abonnés */
+.profile-info-hstack [class*="followers"],
+.profile-info-hstack [class*="subscribers"],
+.profile-info-hstack [class*="followers-count"]{
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: .85rem !important;
+  color: #F2F2DC !important;
+  opacity: .9;
+  text-align: center !important;
+}
+
+/* Badges */
+.profile-info-hstack [class*="about-me"] [class*="badge"],
+.profile-info-hstack [class*="badges"],
+.profile-info-hstack [class*="profile-badges"]{
+  display: inline-flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Date “Membre depuis …” */
+.profile-info-hstack [class*="member-since"],
+.profile-info-hstack [class*="joined"],
+.profile-info-hstack [class*="since"]{
+  font-family:  "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: .85rem !important;
+  color: #F2F2DC !important;
+  opacity: .9;
+  text-align: center !important;
+}
+
+  
+/* Empêche l'apparition ailleurs */
+.profile-info-hstack .chakra-stack.profile-info-stack:not(:first-of-type)::after,
+.profile-info-hstack [class*="profile-info-stack"]:not(:first-of-type)::after{
+  content: none !important;
+}
+
+/* Bouton “Modifier le profil” */
+.profile-info-hstack button[class*="edit"],
+.profile-info-hstack a[class*="edit-profile"]{
+  /* order:  !important;  ← à enlever (propriété invalide) */
+  align-self: center !important;
+  margin-top: 4px !important;
+}
+  
+/* Sécurité : NE RIEN CHANGER dans les accordéons */
+.acc, .acc * { order: initial !important; }
+
+/* Reset du marker natif */
+.acc > summary::-webkit-details-marker,
+.acc > summary::marker { display: none; }
+
+
+
+/* CONTENAIRES */
+.acc-wrap{ display: grid; gap: 10px; }
+
+/* TITRE d'accordéon — bordure correcte */
+.acc > summary{
+  display:flex; align-items:center; gap:.6rem;
+  padding:.55rem .9rem; min-height:36px; cursor:pointer;
+  background:transparent;
+  border: 2px solid #F2F2DC;              /* ← fix */
+  border-radius:4px;
+  font-family:"Brush Script MT", sans-serif;
+  font-weight:100;
+  font-size:1.05rem;
+  letter-spacing:.5px;
+  text-transform:none;
+  color:#F2F2DC;
+  text-align:center; list-style:none;
+}
+
+
+/* Caret */
+.acc > summary .caret{
+  width:.48rem; height:.48rem;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(-45deg);
+  transition:transform .2s ease;
+}
+
+/* Ouvert */
+.acc[open] > summary .caret{ transform:rotate(45deg); }
+
+/* Panneau */
+.acc .panel{
+  padding:.75rem .9rem;
+  background:transparent;
+  border-left: 1px solid rgba(242,242,220,.25);
+  border-right:1px solid rgba(242,242,220,.25);
+  border-bottom:1px solid rgba(242,242,220,.25);
+  border-radius:0 0 6px 6px;
+  font-family:"Helvetica Neue", Helvetica, sans-serif;
+  font-weight:600; color:#F2F2DC; line-height:1.5;
+}
+
+  
+/* A11y focus */
+.acc > summary:focus-visible{
+  outline:1px solid rgba(242,242,220,.6);
+  outline-offset:2px;
+}
+
+/* Coupe d’éventuelles pseudo-décos globales */
+details summary::before,
+details summary::after{
+  content:none !important; background:none !important;
+  box-shadow:none !important; backdrop-filter:none !important;
+}
+
+/* Texte des panneaux */
+.acc .panel,
+.acc .panel p {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .70rem;
+  line-height: 1.2;
+  text-align: center;
+  color: #F2F2DC;
+  font-weight: 100;
+  letter-spacing: .5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BOUTONS PANNEAU DE PROFIL  -->
+<div class="acc-wrap">
+  <details class="acc">
+    <summary><span class="caret"></span>À propos de moi</summary>
+    <div class="panel">
+      Appelez-moi Dream, Ki ou Kir. Je suis illustratrice, autrice à mes heures et créatrice de bots.
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary><span class="caret"></span>Ce que je crée</summary>
+    <div class="panel">
+      Je crée ce qui me plaît tant que cela respecte les règles et ma morale.
+      Principalement dark romance ou fluff, selon l’humeur. Les demandes sont possibles.
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary><span class="caret"></span>Contact</summary>
+    <div class="panel">
+      Je suis surtout joignable sur Twitter. Tous mes liens :
+      <a href="https://kirlegrand.carrd.co/" rel="noopener" style="color:#F2F2DC;text-decoration:underline;">
+        kirlegrand.carrd.co
+      </a>
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary><span class="caret"></span>Informations</summary>
+    <div class="panel">
+      Illustratrice, commissions ouvertes (bientôt pour les bots). Consulte mes tarifs ou écris-moi via mon Carrd.
+    </div>
+  </details>
+</div>
+
+
+
+
+
+
+
+/*V2 JANIROR IA */
+
+
+<style>
+
+._wrapper_13xo6_1 {
+  background: #000000 !important;
+}
+
+
+/* CARTE */ 
+.chakra-stack.profile-character-card-stack, 
+.css-1s5evre, 
+.profile-character-card{ 
+position: relative; 
+display: flex; 
+padding: 0px 0px 30px;
+border: 2px solid #F2F2DC; 
+border-radius: 4px; 
+background-color: #858585; 
+background-clip: padding-box; 
+box-shadow: none !important; 
+isolation: isolate; 
+}
+  
+/* DESACTIVE TOUTE LES SURCOUCHES */ 
+.chakra-stack.profile-character-card-stack::before, 
+.chakra-stack.profile-character-card-stack::after,  
+.profile-character-card-stack-link-component-box::before, 
+.profile-character-card-stack-link-component-box::after, 
+.pp-cc-gradient-1, .pp-cc-gradient-2, div[class*="pp-cc-gradient"], .css-1s5evre::before, 
+.css-1s5evre::after, 
+.profile-character-card::before, 
+.profile-character-card::after{ 
+background: none !important; 
+box-shadow: none !important; 
+outline: 0 !important; 
+filter: none !important; 
+mix-blend-mode: normal !important; 
+opacity: 0 !important; 
+content: none !important; 
+border: 0 !important; 
+}
+
+/* RUBAN */
+.css-wexxj8,
+.pp-cc-ribbon-wrap,
+.profile-character-card-ribbon-wrap {
+  background: #97a97c ;
+  color: #0c0406 ;
+ font-family: Arial, sans-serif !important;
+  font-weight: 500 ;
+  mix-blend-mode: normal ;
+  background-image: none ;
+  filter: none ;
+  border: none ;
+}
+
+
+/* TITRES DES CARTES */
+.pp-cc-name,
+.profile-character-card-name-box {
+  font-family: "Brush Script MT", sans-serif ; /* change la fonte ici */
+  font-weight: 100 ;
+  text-align: center ;
+  width: 100% ;        /* force le centrage */
+  display: block ;
+  color: #F2F2DC ;     /* garde ton beige lisible */
+  font-size: 1.05rem ; /* ajuste si tu veux */
+  letter-spacing: .5px;          /* petit plus élégant */
+}
+
+  
+
+/* FILTRE SUR IMAGE — version corrigée (pas d'espace avant :not) */
+.css-1s5evre img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]),
+.profile-character-card img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]),
+img.profile-character-card-avatar-image{
+  filter: grayscale(100%) opacity(.75) !important;
+  transition: filter .2s ease !important;
+}
+.css-1s5evre img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]):hover,
+.profile-character-card img:not(.pp-cc-star):not([class*="star"]):not([class*="badge"]):not([class*="icon"]):hover,
+img.profile-character-card-avatar-image:hover{
+  filter: none !important;
+}
+
+
+
+/* NOM DU CRÉATEUR SUR LA CARTE */
+.pp-cc-creator-name,
+.profile-character-card-creator-name-box {
+  font-family: "Brush Script MT" ; 
+  font-weight: 100 ;
+  text-align: center ;
+  width: 100% ;
+  display: block ;
+  color: #F2F2DC ;
+  font-size: 1rem ;  /* + discret que le nom du perso */
+  letter-spacing: .5px ;
+}
+
+  
+/* DESCRIPTION DES CARTES */
+.pp-cc-description,
+.profile-character-card-description-markdown-container,
+.pp-cc-description p,
+.profile-character-card-description-markdown-container p {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .70rem;
+  line-height: 1.2 ;
+  text-align: center ;
+  color: #F2F2DC ;
+  font-weight: 100 ;
+  letter-spacing: .5px ;
+}
+/* Images des cartes — coins carrés */
+.css-1s5evre img,
+.profile-character-card img,
+img.profile-character-card-avatar-image {
+  border-radius: 0 !important;
+}
+
+/* LIGNE SOUS LE NOM */
+.pp-cc-star-line.profile-character-card-star-line {
+  border-top: 2px solid #F2F2DC !important;
+  height: 0 !important;
+  background: transparent !important;
+  opacity: 1 !important;
+  margin-top: 6px;
+}
+
+/* ÉTOILE EXACTE EN #F2F2DC + léger glow */
+img.pp-cc-star.profile-character-card-star {
+  filter: brightness(0) saturate(100%)
+          invert(94%) sepia(5%) saturate(320%)
+          hue-rotate(9deg) brightness(103%) contrast(92%)
+          drop-shadow(0 0 4px rgba(242,242,220,.55)) !important;
+}
+
+/* ÉTIQUETTES / TAGS */
+.pp-cc-tags-item {
+  border: 1px solid #f2f2dc ;
+  border-radius: 4px ;
+  padding: 2px 7px ;
+
+  font-family:  "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.80rem !important;
+  line-height: 1.10 !important;
+  font-weight: 400 !important;
+  letter-spacing: .2px !important;
+  text-align: center !important;
+  color: #f2f2dc !important;
+
+  background: #A050A9 ;
+  transition: .2s ease;
+}
+
+/* Effet hover (optionnel) */
+.pp-cc-tags-item:hover {
+  background: rgba(50, 20, 115, 0.12); /* léger highlight */
+  border-color: #f2f2dc; /* ton vert lumière si tu veux harmonie */
+}
+
+  /* === ÉTIQUETTES DANS LA FENÊTRE DE FILTRES === */
+section.chakra-modal__content [class*="_tagsContainer_"] button,
+section.chakra-modal__content [class*="_collapsedContainerWrapper_"] button,
+section.chakra-modal__content [class*="_container_"] button,
+section.chakra-modal__content [class*="_tag_"] {
+  border: 1px solid #f2f2dc !important;
+  border-radius: 4px !important;
+  padding: 2px 7px !important;
+
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: 0.80rem !important;
+  line-height: 1.10 !important;
+  font-weight: 400 !important;
+  letter-spacing: .2px !important;
+  text-align: center !important;
+  color: #f2f2dc !important;
+
+  background: #A050A9 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+/* Effet hover léger */
+section.chakra-modal__content [class*="_tagsContainer_"] button:hover,
+section.chakra-modal__content [class*="_collapsedContainerWrapper_"] button:hover,
+section.chakra-modal__content [class*="_container_"] button:hover {
+  background: rgba(50, 20, 115, 0.12) !important;
+  border-color: #f2f2dc !important;
+  filter: brightness(1.05);
+}
+
+/* STYLE JETONS SUR CARTES */
+.pp-cc-tokens-count,
+.profile-character-card-tokens-count {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid #321473;
+  border-radius: 4px;
+  font-family: "Futura", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #321473;
+  letter-spacing: .3px;
+  text-align: center;
+}
+  
+/* Retire l'ombre sous le texte des tokens */
+.pp-cc-tokens-count,
+.profile-character-card-tokens-count {
+  text-shadow: none !important;
+}
+
+/* Centrer le bloc jetons */
+.profile-character-card-box {
+  text-align: center;
+}
+
+/* TOP BAR */
+.pp-top-bar,
+.profile-top-bar {
+  background:
+    linear-gradient(90deg,
+      rgba(50, 20, 115, .28) 0%,
+      rgba(160, 80, 169, .22) 50%,
+      rgba(242, 242, 220, .06) 100%) ;
+  color: #F2F2DC ;
+  backdrop-filter: blur(14px) saturate(1.25) ;
+  -webkit-backdrop-filter: blur(14px) saturate(1.25) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(242, 242, 220, .12),
+    0 6px 22px rgba(160, 80, 169, .18);
+}
+
+/* === Bouton “Créer un personnage” === */
+a.pp-top-bar-create-char {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 1px solid #F2F2DC;
+  border-radius: 6px;
+  background: #b77eb7 !important;  /* violet doux */
+  color: #F2F2DC !important;       /* texte beige clair */
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none ;
+  box-shadow: none ;
+  cursor: pointer;
+}
+
+/* Neutralise tout effet “glow” ou hover */
+a.pp-top-bar-create-char:hover,
+a.pp-top-bar-create-char:focus,
+a.pp-top-bar-create-char::before,
+a.pp-top-bar-create-char::after {
+  background: none;
+  color:none;
+  box-shadow: none ;
+  filter: none ;
+  outline: none ;
+}
+
+  
+/*  BOUTON HUSBANDO  */
+.profile-pagination-flex-outer,
+.character-list-pagination-box {
+  background: transparent !important;
+}
+
+.profile-badge-flex-outer.Btn2-purple.pp-pg-total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid #F2F2DC;
+  border-radius: 6px ;
+  background: #b77eb7 ;
+  color: #F2F2DC ;
+  box-shadow: none ;
+  transition: all 0.25s ease ;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Effet sur la bordure (même que recherche de personnage) */
+.profile-badge-flex-outer.Btn2-purple.pp-pg-total:hover {
+  border-color: #F2F2DC !important;
+  box-shadow: 0 0 6px rgba(242, 242, 220, 0.35);
+  filter: brightness(1.05);
+}
+
+/* Neutralise tout fond interne */
+.profile-badge-flex-outer::before,
+.profile-badge-flex-outer::after,
+.profile-badge-flex-inner,
+.profile-badge-flex-inner::before,
+.profile-badge-flex-inner::after {
+  background: transparent !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
+/* Supprime “personnages” et ajoute “husbando” */
+.profile-badge-total-text {
+  font-size: 0 !important;
+}
+.profile-badge-total-text::after {
+  content: "husbando";
+  font-family: "Brush Script MT", sans-serif;
+  font-weight: 100;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: #F2F2DC;
+  margin-left: 4px;
+}
+
+/* Nombre (ex: 13) */
+.pp-pg-total-count,
+.profile-badge-total-count,
+.pp-pg-total-count strong {
+  font-family: "Brush Script MT", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #F2F2DC !important;
+  text-shadow: none !important;
+}
+
+  /* CHAMP DE RECHERCHE PERSONNAGES */
+.profile-character-search-input,
+.chakra-input._searchInput_1tkkb_1,
+.pp-fl-search-input {
+  background: transparent !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.5px !important;
+  padding: 6px 10px !important;
+  text-align: left !important;
+  outline: none !important;
+  transition: all 0.25s ease !important;
+}
+
+/* Effet focus léger et propre */
+.profile-character-search-input:focus,
+.chakra-input._searchInput_1tkkb_1:focus,
+.pp-fl-search-input:focus {
+  box-shadow: 0 0 6px rgba(242, 242, 220, 0.35);
+  filter: brightness(1.05);
+}
+
+/* Placeholder assorti */
+.profile-character-search-input::placeholder,
+.chakra-input._searchInput_1tkkb_1::placeholder,
+.pp-fl-search-input::placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: rem;
+  line-height: 1.2 ;
+  text-align: center ;
+  color: #F2F2DC ;
+  font-weight: 100 ;
+  letter-spacing: .5px ;
+}
+
+/*  CHAMP DE RECHERCHE PERSONNAGES neutralise tout halo/ring violet */
+.profile-character-search-input,
+.chakra-input._searchInput_1tkkb_1,
+.pp-fl-search-input{
+  background: transparent !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  outline: none !important;
+  box-shadow: none !important;                 /* coupe le ring par défaut */
+  transition: border-color .2s ease, box-shadow .2s ease, filter .2s ease !important;
+}
+
+/* Hover/focus : lueur beige, pas de violet */
+.profile-character-search-input:hover,
+.profile-character-search-input:focus,
+.chakra-input._searchInput_1tkkb_1:hover,
+.chakra-input._searchInput_1tkkb_1:focus,
+.pp-fl-search-input:hover,
+.pp-fl-search-input:focus,
+.profile-character-search-input-group:focus-within{
+  border-color: #F2F2DC !important;
+  box-shadow: 0 0 6px rgba(242,242,220,.35) !important;  /* halo beige */
+  filter: brightness(1.05);
+  outline: none !important;
+}
+
+/*  BOUTON FILTRE  */
+.pp-fl-filter-button {
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  color: #F2F2DC !important;
+  padding: 6px 10px !important;
+  cursor: pointer !important;
+  transition: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Neutralise hover/focus */
+.pp-fl-filter-button:hover,
+.pp-fl-filter-button:focus {
+  background: #b77eb7 !important;
+  color: #F2F2DC !important;
+  border-color: #F2F2DC !important;
+  box-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+}
+
+/* Icône SVG figée */
+.pp-fl-filter-button svg {
+  color: #F2F2DC !important;
+  transition: none !important;
+}
+.pp-fl-filter-button:hover svg,
+.pp-fl-filter-button:focus svg {
+  color: #F2F2DC !important;
+}
+
+
+/* BOUTON DERNIER */
+/* Bouton fermé */
+div[class*="react-select__control"]{
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  border-radius: 6px !important;
+  min-height: 38px !important; height: 38px !important;
+  box-shadow: none !important;
+  align-items: center !important;
+  transition: box-shadow .2s ease, filter .2s ease !important;
+}
+
+/* Contenu interne + texte centré */
+div[class*="react-select__value-container"]{
+  display:flex !important; align-items:center !important;
+  height:100% !important; padding:0 10px !important;
+}
+div[class*="react-select__single-value"],
+div[class*="react-select__placeholder"]{
+  color:#F2F2DC !important;
+  font: 100 0.90rem/1 "Helvetica Neue", Helvetica, sans-serif !important;
+  display:flex !important; align-items:center !important; height:100% !important;
+}
+
+/* Chevron et pas de séparateur */
+div[class*="react-select__indicators"]{
+  display:flex !important; align-items:center !important; height:100% !important;
+}
+span[class*="react-select__indicator-separator"]{ display:none !important; }
+div[class*="react-select__dropdown-indicator"]{ padding:0 10px !important; }
+div[class*="react-select__dropdown-indicator"] svg{
+  color:#F2F2DC !important; fill:#F2F2DC !important;
+}
+
+/* Hover/focus (même logique que “Recherche de personnage”) */
+div[class*="react-select__control"]:hover,
+div[class*="react-select__control"].react-select__control--is-focused{
+  border-color:#F2F2DC !important;
+  box-shadow:0 0 6px rgba(242,242,220,.35) !important;
+  filter:brightness(1.05);
+}
+
+/* Menu déroulant */
+div[class*="react-select__menu"]{
+  background: rgba(183, 126, 183, .25) !important;
+  border:1px solid #F2F2DC !important; border-radius:8px !important;
+  box-shadow:0 0 6px rgba(242,242,220,.25) !important;
+  backdrop-filter: blur(10px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.2) !important;
+  overflow:hidden !important;
+}
+
+/* Options */
+div[class*="react-select__option"]{
+  background:transparent !important; color:#F2F2DC !important;
+  transition: background .25s ease;
+}
+div[class*="react-select__option--is-focused"],
+div[class*="react-select__option--is-selected"]{
+  background: rgba(242, 242, 220, .35) !important; color:#fff !important;
+}
+
+
+  /* 1) Couper TOUTES les info-bulles (tooltips) */
+[role="tooltip"],
+.chakra-tooltip,
+[class*="tooltip"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* (facultatif) Si Janitor met ses tooltips dans un “popper” spécifique */
+div[id*="tooltip"], 
+div[class*="tooltip"], 
+div[class*="chakra-tooltip__content"] {
+  display: none !important;
+}
+
+/* 2) Neutraliser les effets de survol agaçants */
+
+/* Boutons génériques (Chakra/Janitor) */
+button:hover,
+a.chakra-button:hover,
+[class*="chakra-button"]:hover,
+[class*="pp-"][class*="button"]:hover,
+.Btn:hover {
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  background-image: none !important;
+}
+
+/* Cartes / vignettes de personnages */
+.profile-character-card:hover,
+.css-1s5evre:hover,
+.chakra-stack.profile-character-card-stack:hover {
+  box-shadow: none !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Tags / jetons */
+.pp-cc-tags-item:hover,
+.profile-character-card-tokens-count:hover {
+  background: inherit !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* (optionnel) retirer tout “ring” d’accessibilité visuelle au focus */
+button:focus, a:focus, input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* DEPLIER FILTRE */
+section.chakra-modal__content,
+div.chakra-modal__content {
+  background: rgba(50, 20, 115, 0.9) !important; /* ton bleu/violet, légèrement translucide */
+  backdrop-filter: blur(3px) !important;         /* petit effet doux */
+  border: 2px solid #F2F2DC !important;          /* garde la bordure blanche/beige */
+  border-radius: 4px !important;
+  color: #F2F2DC !important;                     /* texte lisible */
+  box-shadow: none !important;                   /* pas d’ombre autour */
+}
+/* Titres du modal : "Filtres", "Étiquettes" → Arial, même tailles qu’à l’origine */
+section.chakra-modal__content .chakra-modal__header,
+section.chakra-modal__content h1,
+section.chakra-modal__content h2,
+section.chakra-modal__content [class*="heading"]{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 700 !important;     /* garde un rendu net */
+  color: #F2F2DC !important;
+  line-height: 1.25 !important;
+  letter-spacing: .2px !important;
+  text-shadow: none !important;
+}
+
+/* Certains titres sont enveloppés par <font> : on force l’héritage */
+section.chakra-modal__content .chakra-modal__header font,
+section.chakra-modal__content h1 font,
+section.chakra-modal__content h2 font{
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+/* CADRE CROIX */
+[class*="_navigationButton_"],
+.chakra-modal__close-btn {
+  background: #b77eb7 !important;
+  border: 1px solid #F2F2DC !important;
+  color: #F2F2DC !important;
+  box-shadow: none !important;
+}
+
+
+
+
+  
+/* FOLLOW + OPTIONS */
+/* 1) Forcer le conteneur parent à centrer (solution moderne) */
+.chakra-stack:has(.profile-uc-follow-flex, .chakra-menu__menu-button),
+[class*="profile-info-hstack"]:has(.profile-uc-follow-flex, .chakra-menu__menu-button){
+  display: flex !important;
+  justify-content: center !important;  /* centre horizontalement */
+  align-items: center !important;       /* centre verticalement   */
+  gap: 10px !important;                 /* espace entre les deux  */
+  width: 100% !important;
+}
+
+/* 2) Fallback si :has() est ignoré (cibler la stack locale) */
+.profile-uc-follow-flex {               /* bloc du bouton Follow */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.pp-uc-follow-button,
+.profile-uc-follow-button,
+button.pp-uc-follow-button{
+  margin: 0 !important;
+}
+
+.chakra-menu__menu-button,              /* bouton Options (⋯) */
+button[id^="menu-button-public-profile-block-menu"]{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+
+/* 3) Petit ajustement: s’assurer que la ligne qui contient les deux s’étire */
+.chakra-stack[class*="y9k5u7"],
+[class*="profile-info-stack"] > .chakra-stack{
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Supprime complètement le bouton d’onglet et sa ligne bleue */
+.chakra-tabs__tab.pp-tabs-button.profile-tabs-button,
+button.pp-tabs-button,
+button.profile-tabs-button {
+  display: none ;
+  visibility: hidden ;
+  opacity: 0 ;
+  pointer-events: none ;
+}
+
+/* Supprime aussi la ligne d’indicateur bleue des onglets Chakra */
+.chakra-tabs__tab-indicator,
+[class*="tabs__tab-indicator"] {
+  display: none ;
+  opacity: 0 ;
+  background: none ;
+  border: none ;
+  height: 0 ;
+}
+
+/* PROFIL DISPOSITION */
+  
+/* Conteneur principal du header */
+.chakra-stack.profile-info-hstack,
+.profile-info-hstack,
+[class*="profile-info-hstack"]{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Avatar en haut */
+.profile-info-hstack .pp-uc-avatar-container,
+.profile-info-hstack .profile-avatar-container,
+.profile-info-hstack [class*="profile-avatar-container"]{
+  align-self: center !important;
+}
+.profile-info-hstack .pp-uc-avatar,
+.profile-info-hstack .profile-avatar,
+.profile-info-hstack [class*="profile-avatar"]{
+  border-radius: 10px !important;
+  width: 132px !important;
+  height: 132px !important;
+  object-fit: cover !important;
+}
+
+/* 2) Pile infos sous l’avatar */
+.profile-info-hstack .chakra-stack.profile-info-stack,
+.profile-info-hstack [class*="profile-info-stack"]{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+  /* Nom d’utilisateur */
+.profile-info-hstack [class*="username"],
+.profile-info-hstack [class*="profile-info-name"],
+.profile-info-hstack h1[class*="heading"],
+.profile-info-hstack h2[class*="heading"]{
+  font-family: "Brush Script MT", sans-serif !important;
+  font-weight: 100 !important;
+  font-size: 1.9rem !important;
+  letter-spacing: .5px !important;
+  color: #F2F2DC !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* Abonnés */
+.profile-info-hstack [class*="followers"],
+.profile-info-hstack [class*="subscribers"],
+.profile-info-hstack [class*="followers-count"]{
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: .85rem !important;
+  color: #F2F2DC !important;
+  opacity: .9;
+  text-align: center !important;
+}
+
+/* Badges */
+.profile-info-hstack [class*="about-me"] [class*="badge"],
+.profile-info-hstack [class*="badges"],
+.profile-info-hstack [class*="profile-badges"]{
+  display: inline-flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Date “Membre depuis …” */
+.profile-info-hstack [class*="member-since"],
+.profile-info-hstack [class*="joined"],
+.profile-info-hstack [class*="since"]{
+  font-family:  "Helvetica Neue", Helvetica, sans-serif !important;
+  font-size: .85rem !important;
+  color: #F2F2DC !important;
+  opacity: .9;
+  text-align: center !important;
+}
+
+  
+/* Empêche l'apparition ailleurs */
+.profile-info-hstack .chakra-stack.profile-info-stack:not(:first-of-type)::after,
+.profile-info-hstack [class*="profile-info-stack"]:not(:first-of-type)::after{
+  content: none !important;
+}
+
+/* Bouton “Modifier le profil” */
+.profile-info-hstack button[class*="edit"],
+.profile-info-hstack a[class*="edit-profile"]{
+  /* order:  !important;  ← à enlever (propriété invalide) */
+  align-self: center !important;
+  margin-top: 4px !important;
+}
+  
+/* Sécurité : NE RIEN CHANGER dans les accordéons */
+.acc, .acc * { order: initial !important; }
+
+/* Reset du marker natif */
+.acc > summary::-webkit-details-marker,
+.acc > summary::marker { display: none; }
+
+
+
+/* CONTENAIRES */
+.acc-wrap{ display: grid; gap: 10px; }
+
+/* TITRE d'accordéon — bordure correcte */
+.acc > summary{
+  display:flex; align-items:center; gap:.6rem;
+  padding:.55rem .9rem; min-height:36px; cursor:pointer;
+  background:transparent;
+  border: 2px solid #F2F2DC;              /* ← fix */
+  border-radius:4px;
+  font-family:"Brush Script MT", sans-serif;
+  font-weight:100;
+  font-size:1.05rem;
+  letter-spacing:.5px;
+  text-transform:none;
+  color:#F2F2DC;
+  text-align:center; list-style:none;
+}
+
+
+/* Caret */
+.acc > summary .caret{
+  width:.48rem; height:.48rem;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:rotate(-45deg);
+  transition:transform .2s ease;
+}
+
+/* Ouvert */
+.acc[open] > summary .caret{ transform:rotate(45deg); }
+
+/* Panneau */
+.acc .panel{
+  padding:.75rem .9rem;
+  background:transparent;
+  border-left: 1px solid rgba(242,242,220,.25);
+  border-right:1px solid rgba(242,242,220,.25);
+  border-bottom:1px solid rgba(242,242,220,.25);
+  border-radius:0 0 6px 6px;
+  font-family:"Helvetica Neue", Helvetica, sans-serif;
+  font-weight:600; color:#F2F2DC; line-height:1.5;
+}
+
+  
+/* A11y focus */
+.acc > summary:focus-visible{
+  outline:1px solid rgba(242,242,220,.6);
+  outline-offset:2px;
+}
+
+/* Coupe d’éventuelles pseudo-décos globales */
+details summary::before,
+details summary::after{
+  content:none !important; background:none !important;
+  box-shadow:none !important; backdrop-filter:none !important;
+}
+
+/* Texte des panneaux */
+.acc .panel,
+.acc .panel p {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: .70rem;
+  line-height: 1.2;
+  text-align: center;
+  color: #F2F2DC;
+  font-weight: 100;
+  letter-spacing: .5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
